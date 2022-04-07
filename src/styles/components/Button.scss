@@ -1,0 +1,36 @@
+@import '../utils/colors.scss';
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.numOfItems {
+    display: flex;
+    flex: 2;
+    justify-content: center;
+    align-items: center;
+    background-color: $Orange;
+    padding: 0.8em 0;
+    color: $White;
+    border: none;
+    font-size: 1em;
+    border-radius: 7px;
+    margin-left: 10px;
+    cursor: pointer;
+    img {
+        color: $White;
+        padding-right: 10px;
+    }
+    .disabled {
+            pointer-events: none;
+        }
+
+}
+
+@media (max-width: 425px) {
+.numOfItems {
+    margin-top: 20px;
+    width: 100%;
+    margin-left: 0px;
+}
+}
