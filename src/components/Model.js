@@ -4,22 +4,47 @@ import imageProduct from '../images/image-product-1.jpg'
 import imageProductTwo from '../images/image-product-2.jpg'
 import imageProductThree from '../images/image-product-3.jpg'
 import imageProductFour from '../images/image-product-4.jpg'
+import next from '../images/icon-next.svg'
+import previous from '../images/icon-previous.svg'
 
-const Model = ({ model, img, close, active, setActive }) => {
+const Model = ({ model, setModel, active, img }) => {
     const [image,] = useState([imageProduct, imageProductTwo, imageProductThree, imageProductFour]);
-    const [modalProd, setModalProd] = useState(img)
-    console.log(active)
+    const [modalProd, setModalProd] = useState('')
 
-    const handeClose = () => {
-        console.log('close')
+    let prodModal = modalProd === '' ? img : modalProd;
+
+    const closeModel = () => {
+        setModel(false)
+        setModalProd('')
+        console.log(model)
     }
-    const handeNext = () => {
-        console.log('next')
+    const handeNext = (id) => {
+        for (let i = 0; i < id.length; i++) {
+            if (prodModal === id[i]) {
+                console.log(id[i])
+                if (prodModal === id[id.length - 1]) {
+                    setModalProd(id[0])
+                }
+                else {
+                    setModalProd(id[i + 1])
+                }
+            }
+        }
     }
-    const handePrev = () => {
-        console.log('prev')
+    const handePrev = (id) => {
+        for (let i = 0; i < id.length; i++) {
+            if (prodModal === id[i]) {
+                console.log(id[i])
+                if (prodModal === id[0]) {
+                    setModalProd(id[id.length - 1])
+                }
+                else {
+                    setModalProd(id[i - 1])
+                }
+            }
+        }
     }
-    const handleFirstImg = (id) => {
+    const handleModalImg = (id) => {
         setModalProd(id)
         console.log(modalProd)
     }
@@ -27,22 +52,28 @@ const Model = ({ model, img, close, active, setActive }) => {
     // let modalImg = active;
     // console.log(img)
     // console.log(active)
+    console.log(modalProd)
+    console.log(img)
     return (
         <div id='product-modal' style={{ display: model ? 'block' : 'none', position: 'fixed' }} className='modal'>
             <div className='modal-content'>
-                <span className='close' onClick={close}>&times;</span>
-                <img src={modalProd} alt='firstProductImage' className='prodImgSlides' />
-                <a className='prev' onClick={handePrev}>&#10094;</a>
-                <a className='next' onClick={handeNext}>&#10095;</a>
+                <span className='close' onClick={closeModel}>&times;</span>
+                <div className='modal-slide'>
+                    <img src={prodModal} alt='firstProductImage' className='prodImgSlides' />
+                    <div className='next-prev'>
+                        <img src={previous} className='prev' onClick={() => handePrev(image)} />
+                        <img src={next} className='next' onClick={() => handeNext(image)} />
+                    </div>
+                </div>
                 {/* <img src={imageProductTwo} alt='firstProductImage' className='prodImgSlides' />
                 <img src={imageProductThree} alt='firstProductImage' className='prodImgSlides' />
                 <img src={imageProductFour} alt='firstProductImage' className='prodImgSlides' /> */}
 
-                <div className='allImages'>
-                    {image.map((images, index) => {
+                <div className='modalImages'>
+                    {image.map((modalImages, index) => {
                         return (
-                            <img key={index} src={images} alt='productImages' className={`prodImages ${images === modalProd ? 'borderAround' : ''}`
-                            } onClick={() => handleFirstImg(images)} />
+                            <img key={index} src={modalImages} alt='productImages' className={`modalProdImages ${modalImages === prodModal ? 'borderAround' : ''}`
+                            } onClick={() => handleModalImg(modalImages)} />
                         )
                     })}
                 </div>
@@ -53,7 +84,7 @@ const Model = ({ model, img, close, active, setActive }) => {
                         <img src={imageProductFour} alt='productFour' />
                     </div> */}
             </div>
-        </div >
+        </div>
     )
 }
 

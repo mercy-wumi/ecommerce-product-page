@@ -25,6 +25,7 @@ const Starter = ({
     // const desc = 'Fall Limited Edition Sneakers'
     const handleFirstImg = (id) => {
         setActive(id)
+        console.log(active)
     }
 
     // const handleIncrement = () => {
@@ -44,23 +45,23 @@ const Starter = ({
     //         setCount(0)
     //     }
     // }
-    const openModel = (id) => {
-        setActive(id)
+    const openModel = () => {
+        console.log(active)
         setModel(true)
 
         console.log(model)
     }
-    const closeModel = () => {
-        setModel(false)
-        console.log(model)
-    }
+    // const closeModel = () => {
+    //     setModel(false)
+    //     console.log(model)
+    // }
 
     // const handleAddItem = () => {
     //     console.log(openCart)
     //     setOpenCart(true)
     // }
 
-    let imgSrc = active === null ? image[0] : active;
+    // let imgSrc = active === null ? image[0] : active;
     // let imgModel = active;
     // console.log(active)
     // console.log(imgModel)
@@ -68,7 +69,7 @@ const Starter = ({
         <div className='row'>
             <div className='container'>
                 <div className='productImg'>
-                    <img src={imgSrc} alt='product' id='featuredimg' onClick={() => openModel(imgSrc)} />
+                    <img src={active} alt='product' id='featuredimg' onClick={openModel} />
                     <div className='allImages'>
                         {image.map((images, index) => {
                             return (
@@ -96,7 +97,7 @@ const Starter = ({
                     </div>
                 </div>
             </div>
-            <Model model={model} img={imgSrc} close={closeModel} active={active} setActive={setActive} />
+            <Model model={model} img={active} setModel={setModel} active={active} setActive={setActive} />
             {/* <Cart count={count} openCart={openCart} price={price} desc={desc} image={image[0]} /> */}
         </div>
     )

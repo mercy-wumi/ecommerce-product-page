@@ -59,3 +59,13 @@
             }
     }
 }
+
+@media (max-width: 425px) {
+    .cart {
+    top: 100px;
+    width: 90%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    }
+}
