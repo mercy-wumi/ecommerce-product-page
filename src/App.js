@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Cart from "./components/Cart";
+
 import Navbar from "./components/Navbar";
 import Starter from "./sections/Starter";
 import Model from "./components/Model";
@@ -10,6 +10,7 @@ import imageProductFour from './images/image-product-4.jpg'
 
 function App() {
   const [image,] = useState([imageProduct, imageProductTwo, imageProductThree, imageProductFour]);
+  const [active, setActive] = useState(imageProduct)
   const [count, setCount] = useState(0);
   const [openCart, setOpenCart] = useState(false)
   const [cartItem, setCartItem] = useState(false)
@@ -72,13 +73,14 @@ function App() {
         handleMenuClick={handleMenuClick}
         mobileNav={mobileNav}
       />
-      {/* <Cart /> */}
       <Starter
         disabled={disabled}
         count={count}
         desc={desc}
         price={price}
         image={image}
+        active={active}
+        setActive={setActive}
         setCartItem={setCartItem}
         handleAddItem={handleAddItem}
         handleDecrement={handleDecrement}

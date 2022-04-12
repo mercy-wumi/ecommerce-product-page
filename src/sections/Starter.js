@@ -1,75 +1,69 @@
 import React, { useState } from 'react'
+
 import Model from '../components/Model'
-import '../styles/sections/Starter.scss'
-import imageProduct from '../images/image-product-1.jpg'
-// import imageProductTwo from '../images/image-product-2.jpg'
-// import imageProductThree from '../images/image-product-3.jpg'
-// import imageProductFour from '../images/image-product-4.jpg'
 import Button from '../components/Button';
+
+import '../styles/sections/Starter.scss'
+
+import next from '../images/icon-next.svg'
+import previous from '../images/icon-previous.svg'
 import iconCart from '../images/icon-cart.svg';
-import Cart from '../components/Cart';
 import minus from '../images/icon-minus.svg';
 import plus from '../images/icon-plus.svg';
 
 const Starter = ({
     count, price, desc, handleAddItem, handleDecrement, handleIncrement,
-    image, cartItem, disabled
+    image, disabled, active, setActive,
 }) => {
-    // const [image,] = useState([imageProduct, imageProductTwo, imageProductThree, imageProductFour]);
-    const [active, setActive] = useState(imageProduct)
     const [model, setModel] = useState(false)
-    // const [openCart, setOpenCart] = useState(false)
-    // const [count, setCount] = useState(0);
 
-    // const price = 125.00
-    // const desc = 'Fall Limited Edition Sneakers'
     const handleFirstImg = (id) => {
         setActive(id)
         console.log(active)
+        console.log(active)
     }
 
-    // const handleIncrement = () => {
+    const handleMobileNext = (img) => {
+        for (let i = 0; i < img.length; i++) {
+            if (active === img[i]) {
+                if (active === img[img.length - 1]) {
+                    setActive(img[0])
+                }
+                else {
+                    setActive(img[i + 1])
+                }
+            }
+        }
+    }
 
-    //     if (count >= 0 && count < 10) {
-    //         setCount(count + 1)
-    //     }
-    //     else {
-    //         setCount(10)
-    //     }
-    // }
-    // const handleDecrement = () => {
-    //     if (count <= 10 && count > 0) {
-    //         setCount(count - 1)
-    //     }
-    //     else {
-    //         setCount(0)
-    //     }
-    // }
+    const handleMobilePrev = (img) => {
+        for (let i = 0; i < img.length; i++) {
+            if (active === img[i]) {
+                if (active === img[0]) {
+                    setActive(img[img.length - 1])
+                }
+                else {
+                    setActive(img[i - 1])
+                }
+            }
+        }
+    }
     const openModel = () => {
         console.log(active)
         setModel(true)
 
         console.log(model)
     }
-    // const closeModel = () => {
-    //     setModel(false)
-    //     console.log(model)
-    // }
-
-    // const handleAddItem = () => {
-    //     console.log(openCart)
-    //     setOpenCart(true)
-    // }
-
-    // let imgSrc = active === null ? image[0] : active;
-    // let imgModel = active;
-    // console.log(active)
-    // console.log(imgModel)
     return (
         <div className='row'>
             <div className='container'>
                 <div className='productImg'>
+                    <img src={active} alt='product' id='featuredMobileImg' />
                     <img src={active} alt='product' id='featuredimg' onClick={openModel} />
+                    <div className='next-prev'>
+                        <img src={previous} className='prev' onClick={() => handleMobilePrev(image)} />
+                        <img src={next} className='next' onClick={() => handleMobileNext(image)} />
+                    </div>
                     <div className='allImages'>
                         {image.map((images, index) => {
                             return (
@@ -98,7 +92,6 @@ const Starter = ({
                 </div>
             </div>
             <Model model={model} img={active} setModel={setModel} active={active} setActive={setActive} />
-            {/* <Cart count={count} openCart={openCart} price={price} desc={desc} image={image[0]} /> */}
         </div>
     )
 }

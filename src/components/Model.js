@@ -48,10 +48,6 @@ const Model = ({ model, setModel, active, img }) => {
         setModalProd(id)
         console.log(modalProd)
     }
-    // console.log(modalProd)
-    // let modalImg = active;
-    // console.log(img)
-    // console.log(active)
     console.log(modalProd)
     console.log(img)
     return (
@@ -65,10 +61,6 @@ const Model = ({ model, setModel, active, img }) => {
                         <img src={next} className='next' onClick={() => handeNext(image)} />
                     </div>
                 </div>
-                {/* <img src={imageProductTwo} alt='firstProductImage' className='prodImgSlides' />
-                <img src={imageProductThree} alt='firstProductImage' className='prodImgSlides' />
-                <img src={imageProductFour} alt='firstProductImage' className='prodImgSlides' /> */}
-
                 <div className='modalImages'>
                     {image.map((modalImages, index) => {
                         return (
@@ -77,12 +69,6 @@ const Model = ({ model, setModel, active, img }) => {
                         )
                     })}
                 </div>
-                {/* <div className='allProductImg'>
-                        <img src={imageProduct} alt='productOne' />
-                        <img src={imageProductTwo} alt='productTwo' />
-                        <img src={imageProductThree} alt='productThree' />
-                        <img src={imageProductFour} alt='productFour' />
-                    </div> */}
             </div>
         </div>
     )

@@ -10,8 +10,12 @@
     margin-top: 80px;
     padding: 3% 0;
     .productImg {
+        position: relative;
         width: 40%;
-    #featuredimg{
+        #featuredMobileImg{
+            display: none;
+        }
+    #featuredimg, #featuredMobileImg{
         width: 100%;
         height: auto;
         border-radius: 10px;
@@ -19,14 +23,33 @@
     #featuredimg:hover{
         cursor: pointer;
     }
+    .next-prev {
+        display: none;
+            z-index: 1;
+             .next,.prev {
+                position: absolute;
+                top: 43%;
+                cursor: pointer;
+                padding: 1em 1.2em;
+                text-align: center;
+                border-radius: 50%;
+                background-color: $White;
+    }
+    .next, .prev {
+        color: $Orange;
+    }
+    .next {
+        right: 15px;
+    }
+    .prev {
+        left: 15px;
+    }
+}
     
     .allImages {
         display: flex;
         justify-content: space-between;
         margin-top: 30px;
-        // .allImages img {
-        // border-radius: 10px;
-        // }
     .borderAround{
         border: 2px solid $Orange;
         opacity: 0.7;
@@ -142,6 +165,18 @@
         flex-direction: column;
         .productImg {
         width: 100%;
+        #featuredMobileImg {
+            display: block;
+        }
+        #featuredimg {
+            display: none;
+        }
+        .next-prev {
+        display: block;
+        .next,.prev {
+                top: 40%;
+        }
+        }
     }
     .productDesc {
     width: 100%;
@@ -159,7 +194,7 @@
         .productImg {
         width: 100%;
         padding-top: 0em;
-        #featuredimg{
+        #featuredMobileImg {
             border-radius: 0px;
         }
         .allImages{

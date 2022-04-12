@@ -17,15 +17,14 @@
     border-radius: 7px;
     margin-left: 10px;
     cursor: pointer;
-    img {
-        color: $White;
+    .cartImg {
         padding-right: 10px;
     }
-    .disabled {
-            pointer-events: none;
-        }
 
 }
+.disabled {
+            pointer-events: none;
+        }
 
 @media (max-width: 425px) {
 .numOfItems {
