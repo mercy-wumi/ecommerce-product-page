@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     background-color: $Orange;
-    padding: 0.8em 0;
+    padding: 0.9em 0;
     color: $White;
     border: none;
     font-size: 1em;
@@ -18,13 +18,13 @@
     margin-left: 10px;
     cursor: pointer;
     .cartImg {
-        padding-right: 10px;
+        padding-right: 15px;
     }
 
 }
-.disabled {
-            pointer-events: none;
-        }
+    button:disabled {
+        pointer-events: none;
+    }
 
 @media (max-width: 425px) {
 .numOfItems {

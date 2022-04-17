@@ -61,8 +61,8 @@ const Starter = ({
                     <img src={active} alt='product' id='featuredMobileImg' />
                     <img src={active} alt='product' id='featuredimg' onClick={openModel} />
                     <div className='next-prev'>
-                        <img src={previous} className='prev' onClick={() => handleMobilePrev(image)} />
-                        <img src={next} className='next' onClick={() => handleMobileNext(image)} />
+                        <img src={previous} className='prev' alt='previous-btn' onClick={() => handleMobilePrev(image)} />
+                        <img src={next} className='next' alt='next-btn' onClick={() => handleMobileNext(image)} />
                     </div>
                     <div className='allImages'>
                         {image.map((images, index) => {
@@ -83,9 +83,9 @@ const Starter = ({
                     </div>
                     <div className='addToCart'>
                         <div className='buttons'>
-                            <img src={minus} className={`numOfItem ${disabled ? 'disabled' : ''}`} onClick={handleDecrement} />
+                            <img src={minus} alt='minus' className={`numOfItem ${disabled ? 'disabled' : ''}`} onClick={handleDecrement} />
                             <span id='num'>{count}</span>
-                            <img src={plus} className={`numOfItem ${disabled ? 'disabled' : ''}`} onClick={handleIncrement} />
+                            <img src={plus} alt='plus' className={`numOfItem ${disabled ? 'disabled' : ''}`} onClick={handleIncrement} />
                         </div>
                         <Button icon={iconCart} text='Add to cart' click={handleAddItem} count={count} />
                     </div>
