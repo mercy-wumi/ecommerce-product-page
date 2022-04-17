@@ -13,7 +13,7 @@ const Cart = ({ count, openCart, price, desc, image, handleRemoveItem }) => {
                 {count < 1 ? <span>Your cart is empty</span> :
                     <>
                         <div className='cart-item'>
-                            <img src={image} alt='item image' className='cart-item-img' />
+                            <img src={image} alt='product item' className='cart-item-img' />
                             <div className='cart-item-decs'>
                                 <p>{desc}</p>
                                 <p>${price} x {count} <span className='totalPrice'>${total}.00</span></p>

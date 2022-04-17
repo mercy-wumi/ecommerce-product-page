@@ -1,4 +1,4 @@
-import react, { useState } from 'react'
+// import react, { useState } from 'react'
 import Cart from './Cart'
 import '../styles/components/Navbar.scss'
 import logo from '../images/logo.svg'

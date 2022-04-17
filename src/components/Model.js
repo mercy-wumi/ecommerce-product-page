@@ -57,8 +57,8 @@ const Model = ({ model, setModel, active, img }) => {
                 <div className='modal-slide'>
                     <img src={prodModal} alt='firstProductImage' className='prodImgSlides' />
                     <div className='next-prev'>
-                        <img src={previous} className='prev' onClick={() => handePrev(image)} />
-                        <img src={next} className='next' onClick={() => handeNext(image)} />
+                        <img src={previous} className='prev' alt='previous btn' onClick={() => handePrev(image)} />
+                        <img src={next} className='next' alt='next btn' onClick={() => handeNext(image)} />
                     </div>
                 </div>
                 <div className='modalImages'>
