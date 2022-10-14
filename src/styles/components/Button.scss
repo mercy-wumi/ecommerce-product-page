@@ -1,4 +1,5 @@
 @import '../utils/colors.scss';
+
 * {
     padding: 0px;
     margin: 0px;
@@ -17,19 +18,22 @@
     border-radius: 7px;
     margin-left: 10px;
     cursor: pointer;
+
     .cartImg {
         padding-right: 15px;
     }
 
 }
-    button:disabled {
-        pointer-events: none;
-    }
+
+button:disabled {
+    // pointer-events: none;
+    cursor: not-allowed;
+}
 
 @media (max-width: 425px) {
-.numOfItems {
-    margin-top: 20px;
-    width: 100%;
-    margin-left: 0px;
-}
+    .numOfItems {
+        margin-top: 20px;
+        width: 100%;
+        margin-left: 0px;
+    }
 }

@@ -83,9 +83,9 @@ const Starter = ({
                     </div>
                     <div className='addToCart'>
                         <div className='buttons'>
-                            <img src={minus} alt='minus' className={`numOfItem ${disabled ? 'disabled' : ''}`} onClick={handleDecrement} />
+                            <img src={minus} alt='minus' className={`numOfItem ${disabled || count < 1 ? 'disabled' : ''}`} onClick={handleDecrement} />
                             <span id='num'>{count}</span>
-                            <img src={plus} alt='plus' className={`numOfItem ${disabled ? 'disabled' : ''}`} onClick={handleIncrement} />
+                            <img src={plus} alt='plus' className={`numOfItem ${disabled || count > 9 ? 'disabled' : ''}`} onClick={handleIncrement} />
                         </div>
                         <Button icon={iconCart} text='Add to cart' click={handleAddItem} count={count} />
                     </div>

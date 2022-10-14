@@ -1,12 +1,13 @@
 @import '../utils/colors.scss';
 
 .navbar {
+    max-width: 1400px;
     position: fixed;
     top: 0;
     z-index: 20;
     width: 100%;
-   
-    .navbar-container{
+
+    .navbar-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -15,130 +16,152 @@
         width: 80%;
         background-color: $White;
         border-bottom: 2px solid $LightGrayishBlue;
-    .logoMenus {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    .menuIcon{
-        display: none;
-    }
-        .menus {
-        list-style: none;
-        display: flex;
-    }
-    .close{
-        display: none;
-    }
-    .mobNav {
-               display: none;
+
+        .logoMenus {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .menuIcon {
+                display: none;
             }
-    .menuLink{
-        color: $DarkGrayishBlue;
-        margin-left: 30px;
-        text-decoration: none;
-    }
-    .menuLink:hover{
-        padding-bottom: 28px;
-        border-bottom: 3px solid $Orange;
-    }
+
+            .menus {
+                list-style: none;
+                display: flex;
+            }
+
+            .close {
+                display: none;
+            }
+
+            .mobNav {
+                display: none;
+            }
+
+            .menuLink {
+                color: $DarkGrayishBlue;
+                margin-left: 30px;
+                text-decoration: none;
+            }
+
+            .menuLink:hover {
+                padding-bottom: 28px;
+                border-bottom: 3px solid $Orange;
+            }
         }
-    
-    .menuImg {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .profile {
-        width: 40%;
-        height: auto;
-        cursor: pointer;
+
+        .menuImg {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .profile {
+                width: 40%;
+                height: auto;
+                cursor: pointer;
+            }
+
+            .cartItemNum {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            .cartItemNum span {
+                display: none;
+                margin-top: -25px;
+                margin-left: -10px;
+                background-color: $Orange;
+                padding: 0px 8px;
+                border-radius: 50%;
+                font-size: 14px;
+                color: $White
+            }
+
+            .profile:hover {
+                border: 2px solid $Orange;
+                border-radius: 50%;
+            }
+        }
     }
-    .cartItemNum {
-        display: flex;
-        align-items: center;
-        cursor: pointer; 
-    }
-    .cartItemNum span {
-        display: none;
-        margin-top: -25px;
-        margin-left: -10px;
-        background-color: $Orange;
-        padding: 0px 8px;
-        border-radius: 50%;
-        font-size: 14px;
-        color: $White
-    }
-    .profile:hover {
-        border: 2px solid $Orange;
-        border-radius: 50%;
-    }
-    }
-   } 
 }
 
 @media (max-width: 768px) {
-    .navbar{
-    .navbar-container{
-        border: 0px;
-        width: 90%;
-        .logoMenus{
-            .menuIcon {
-                display: block;
-                margin-right: 20px;
-            }
-            .menus {
-                display: none;
-            }
-        .menuMobile {
-            height: 100%;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: rgba(0, 0, 0, 0.8);
-            overflow-x: hidden;
-            .blur {
-                background-color: $White;
-                width: 50%;
-                height: 100%;
-                padding-left: 30px;
-                 z-index: 2;
-                 opacity: 1;
-                .close{
+    .navbar {
+        .navbar-container {
+            border: 0px;
+            width: 90%;
+
+            .logoMenus {
+                .menuIcon {
                     display: block;
-                padding: 30px 0px;
-            }
-            .mobNav {
-                display: block;
-                list-style: none;
-                font-size: 18px;
-            }
-            .mobNav li{
-                margin: 30px 0;
-            }
-            .menuLink {
-                margin-left: 0px;
-                color: $Black;
-                font-weight: bold;
-            }
-            .menuLink:hover{
-            padding-bottom: 10px;
-            border-bottom: 3px solid $Orange;
-    }
+                    margin-right: 20px;
+                }
+
+                .menus {
+                    display: none;
+                }
+
+                .menuMobile {
+                    height: 100%;
+                    width: 100%;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    background: rgba(0, 0, 0, 0.8);
+                    overflow-x: hidden;
+
+                    .blur {
+                        background-color: $White;
+                        width: 50%;
+                        height: 100%;
+                        padding-left: 30px;
+                        z-index: 2;
+                        opacity: 1;
+
+                        .close {
+                            display: block;
+                            padding: 30px 0px;
+                        }
+
+                        .mobNav {
+                            display: block;
+                            list-style: none;
+                            font-size: 18px;
+                        }
+
+                        .mobNav li {
+                            margin: 30px 0;
+                        }
+
+                        .menuLink {
+                            margin-left: 0px;
+                            color: $Black;
+                            font-weight: bold;
+                        }
+
+                        .menuLink:hover {
+                            padding-bottom: 10px;
+                            border-bottom: 3px solid $Orange;
+                        }
+                    }
+                }
             }
         }
     }
 }
-}
-}
+
 @media (max-width: 768px) {
-    .navbar{
-    .navbar-container{
-        width: 100%;
-        justify-content: space-around;
-        margin: 0;
-        .menuImg {
-        width: 20%;
+    .navbar {
+        .navbar-container {
+            width: 100%;
+            justify-content: space-around;
+            margin: 0;
+
+            .menuImg {
+                width: 20%;
+            }
         }
     }
-}
 }

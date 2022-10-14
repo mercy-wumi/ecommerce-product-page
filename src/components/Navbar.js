@@ -1,4 +1,4 @@
-// import react, { useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Cart from './Cart'
 import '../styles/components/Navbar.scss'
 import logo from '../images/logo.svg'
@@ -11,11 +11,27 @@ const Navbar = ({
     price, desc, image, openCart, count, cartItem, handleShowCart, handleRemoveItem,
     mobileNav, handleMenuClick
 }) => {
+    const cartRef = useRef()
+    const cartBtn = useRef()
+    const [open, setOpen] = useState(false)
+
+    useEffect(() => {
+        let handler = (e) => {
+            if (cartRef.current && !cartRef.current.contains(e.target) && !cartBtn.current.contains(e.target)) {
+                setOpen(false)
+            }
+        }
+        document.addEventListener('mousedown', handler)
+        return () => {
+            document.removeEventListener('mousedown', handler)
+        }
+    })
 
 
     return (
         <>
             <Cart
+                cartOpen={cartRef}
                 price={price}
                 image={image}
                 desc={desc}
@@ -49,7 +65,7 @@ const Navbar = ({
                         </div>
                     </div>
                     <div className='menuImg'>
-                        <div className='cartItemNum' onClick={handleShowCart}>
+                        <div className='cartItemNum' onClick={handleShowCart} ref={cartBtn}>
                             <img src={cart} alt='cart' />
                             <span style={{ display: cartItem ? 'block' : 'none' }}>{count > 0 ? count : ''}</span>
                         </div>
